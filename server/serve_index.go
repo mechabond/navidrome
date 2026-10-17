@@ -142,6 +142,10 @@ func getIndexTemplate(r *http.Request, fs fs.FS) (*template.Template, error) {
 type shareData struct {
 	ID           string       `json:"id"`
 	Description  string       `json:"description"`
+	Name         string       `json:"name,omitempty"`
+	ResourceType string       `json:"resourceType,omitempty"`
+	Owner        string       `json:"owner,omitempty"`
+	ImageURL     string       `json:"imageUrl,omitempty"`
 	Downloadable bool         `json:"downloadable"`
 	Tracks       []shareTrack `json:"tracks"`
 }
@@ -163,6 +167,10 @@ func addShareData(r *http.Request, data map[string]any, shareInfo *model.Share) 
 	sd := shareData{
 		ID:           shareInfo.ID,
 		Description:  shareInfo.Description,
+		Name:         shareInfo.Contents,
+		ResourceType: shareInfo.ResourceType,
+		Owner:        shareInfo.Username,
+		ImageURL:     shareInfo.ImageURL,
 		Downloadable: shareInfo.Downloadable,
 	}
 	sd.Tracks = slice.Map(shareInfo.Tracks, func(mf model.MediaFile) shareTrack {

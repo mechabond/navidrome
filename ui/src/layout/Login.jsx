@@ -16,7 +16,7 @@ import {
   useTranslate,
   useVersion,
 } from 'react-admin'
-import Logo from '../icons/android-icon-192x192.png'
+import Logo from '../icons/drome-logo.png'
 
 import Notification from './Notification'
 import useCurrentTheme from '../themes/useCurrentTheme'
@@ -50,14 +50,19 @@ const useStyles = makeStyles(
     },
     icon: {
       backgroundColor: 'transparent',
-      width: '6.3em',
-      height: '6.3em',
+      width: '7em',
+      height: '7em',
+      objectFit: 'contain',
+      filter: 'drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35))',
     },
     systemName: {
-      marginTop: '1em',
+      marginTop: '0.25em',
       display: 'flex',
       justifyContent: 'center',
-      color: '#3f51b5', //theme.palette.grey[500]
+      color: '#fb5e5e',
+      fontSize: '2rem',
+      fontWeight: 800,
+      letterSpacing: '0.04em',
     },
     welcome: {
       marginTop: '1em',
@@ -77,9 +82,6 @@ const useStyles = makeStyles(
       padding: '0 1em 1em 1em',
     },
     button: {},
-    systemNameLink: {
-      textDecoration: 'none',
-    },
     message: {
       marginTop: '1em',
       padding: '0 1em 1em 1em',
@@ -125,16 +127,7 @@ const FormLogin = ({ loading, handleSubmit, validate }) => {
               <div className={classes.avatar}>
                 <img src={Logo} className={classes.icon} alt={'logo'} />
               </div>
-              <div className={classes.systemName}>
-                <a
-                  href="https://www.navidrome.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={classes.systemNameLink}
-                >
-                  Navidrome
-                </a>
-              </div>
+              <div className={classes.systemName}>Drome</div>
               {config.welcomeMessage && (
                 <div
                   className={classes.welcome}

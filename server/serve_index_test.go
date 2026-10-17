@@ -296,6 +296,8 @@ var _ = Describe("addShareData", func() {
 			Expect(shareData.ID).To(Equal(shareInfo.ID))
 			Expect(shareData.Description).To(Equal(shareInfo.Description))
 			Expect(shareData.Downloadable).To(Equal(shareInfo.Downloadable))
+			Expect(shareData.Name).To(Equal(shareInfo.Contents))
+			Expect(shareData.ImageURL).To(Equal(shareInfo.ImageURL))
 
 			Expect(shareData.Tracks).To(HaveLen(len(shareInfo.Tracks)))
 			for i, track := range shareData.Tracks {
