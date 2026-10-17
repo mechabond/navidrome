@@ -12,7 +12,7 @@
 [![Gurubase](https://img.shields.io/badge/Gurubase-Ask%20Navidrome%20Guru-006BFF?style=flat-square)](https://gurubase.io/g/navidrome)
 
 Navidrome is an open source web-based music collection server and streamer. It gives you freedom to listen to your
-music collection from any browser or mobile device. It's like your personal Spotify!
+music collection from any browser or mobile device. It's like your personal Spotify!!
 
 
 **Note**: The `master` branch may be in an unstable or even broken state during development. 
