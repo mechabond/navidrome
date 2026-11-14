@@ -24,8 +24,13 @@ if [ ! -f "$postinstall_flag" ]; then
     # someone manually removed the .installed flag. In this case, ignore the error
     navidrome service install --user navidrome --working-directory /var/lib/navidrome --configfile /etc/navidrome/navidrome.toml || :
     touch "$postinstall_flag"
+    # Drome: start the service right away instead of waiting for the next reboot.
+    navidrome service start --configfile /etc/navidrome/navidrome.toml || :
 else
-    navidrome service stop --configfile /etc/navidrome/navidrome.toml && navidrome service start --configfile /etc/navidrome/navidrome.toml
+    # Restart on upgrade. Never fail the package install if the service was already
+    # stopped (stop errors) or cannot start yet (e.g. music drive not mounted).
+    navidrome service stop --configfile /etc/navidrome/navidrome.toml || :
+    navidrome service start --configfile /etc/navidrome/navidrome.toml || :
 fi
 
 
